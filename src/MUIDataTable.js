@@ -15,7 +15,8 @@ import textLabels from "./textLabels";
 import { withStyles } from "@material-ui/core/styles";
 
 const defaultTableStyles = {
-  root: {},
+  root: {
+  },
   responsiveScroll: {
     overflowX: "auto",
   },
@@ -782,7 +783,7 @@ class MUIDataTable extends React.Component {
     const rowCount = this.options.count || displayData.length;
 
     return (
-      <Paper elevation={4} ref={el => (this.tableContent = el)} className={classes.paper}>
+      <React.Fragment ref={el => (this.tableContent = el)} className={classes.paper}>
         {selectedRows.data.length ? (
           <MUIDataTableToolbarSelect
             options={this.options}
@@ -860,7 +861,7 @@ class MUIDataTable extends React.Component {
         <div className={classes.liveAnnounce} aria-live={"polite"} ref={el => (this.announceRef = el)}>
           {announceText}
         </div>
-      </Paper>
+      </React.Fragment>
     );
   }
 }
